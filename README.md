@@ -51,17 +51,22 @@ JOIN directors USING (movie_id)
 JOIN persons USING (person_id);
 """
 imdb = pd.read_sql(query, conn)
+
 Data Analysis
 Analysis of Return on Investment by Release Month
 python
 
 month_roi = df_1.groupby('release_month')['ROI'].mean().reset_index()
 sns.pointplot(x='release_month', y='ROI', data=month_roi)
+
+
 Analysis of Genre Popularity Based on Number of Votes
 python
 
 genre_avgvotes = movie_df.groupby('genres')['numvotes'].mean().reset_index()
 sns.barplot(x='numvotes', y='genres', data=genre_avgvotes)
+
+
 Analysis of Runtime by Genre
 python
 
